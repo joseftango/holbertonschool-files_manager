@@ -11,12 +11,17 @@ class AppController {
   }
 
   static async getStats(request, response) {
-    const stats = {
-      users: await DBClient.nbUsers(),
-      files: await DBClient.nbFiles(),
-    };
-    return response.status(200).send(stats);
+    try {
+      const stats = {
+        users: await DBClient.nbUsers(),
+        files: await DBClient.nbFiles(),
+      };
+      return response.status(200).send(stats);
+    } catch (error) {
+      console.error(`Error getting stats: ${error}`);
+      return response.status(500).json({ error: 'Internal Server Error' });
+    }
   }
 }
 
-module.exports = AppController;
+export default AppController;
