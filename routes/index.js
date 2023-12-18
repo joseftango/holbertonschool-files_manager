@@ -2,7 +2,6 @@ import express from 'express';
 import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
 
-
 const router = (app) => {
   const paths = express.Router();
   app.use(express.json());
