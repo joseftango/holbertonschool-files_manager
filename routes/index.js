@@ -3,7 +3,6 @@ import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
 import AuthController from '../controllers/AuthController';
 
-
 const router = (app) => {
   const paths = express.Router();
   app.use(express.json());
@@ -15,7 +14,6 @@ const router = (app) => {
   paths.get('/connect', ((request, response) => AuthController.getConnect(request, response)));
   paths.get('/disconnect', ((request, response) => AuthController.getDisconnect(request, response)));
   paths.get('/users/me', ((request, response) => UsersController.getMe(request, response)));
-
 };
 
 export default router;
