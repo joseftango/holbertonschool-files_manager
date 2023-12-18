@@ -1,5 +1,7 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
+import UsersController from '../controllers/UsersController';
+
 
 const router = (app) => {
   const paths = express.Router();
@@ -8,6 +10,7 @@ const router = (app) => {
 
   paths.get('/status', (request, response) => AppController.getStatus(request, response));
   paths.get('/stats', (request, response) => AppController.getStats(request, response));
+  paths.post('/users', (request, response) => UsersController.postNew(request, response));
 };
 
 export default router;
